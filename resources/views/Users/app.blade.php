@@ -908,18 +908,18 @@
 
 
 <!-- Vectormap -->
-<script src="./vendor/raphael/raphael.min.js"></script>
-<script src="./vendor/morris/morris.min.js"></script>
+<script src="{{asset('./Users/vendor/raphael/raphael.min.js')}}"></script>
+<script src="{{asset('./Users/vendor/morris/morris.min.js')}}"></script>
 
 
-<script src="./vendor/circle-progress/circle-progress.min.js"></script>
-<script src="./vendor/chart.js/Chart.bundle.min.js"></script>
+<script src="{{asset('./Users/vendor/circle-progress/circle-progress.min.js')}}"></script>
+<script src="{{asset('./Users/vendor/chart.js/Chart.bundle.min.js')}}"></script>
 
-<script src="./vendor/gaugeJS/dist/gauge.min.js"></script>
+<script src="{{asset('./Users/vendor/gaugeJS/dist/gauge.min.js')}}"></script>
 
 <!--  flot-chart js -->
-<script src="./vendor/flot/jquery.flot.js"></script>
-<script src="./vendor/flot/jquery.flot.resize.js"></script>
+<script src="{{asset('./Users/vendor/flot/jquery.flot.js')}}"></script>
+<script src="{{asset('./Users/vendor/flot/jquery.flot.resize.js')}}"></script>
 
 <!-- Owl Carousel -->
 <script src="{{asset('./Users/vendor/owl-carousel/js/owl.carousel.min.js')}}"></script>
