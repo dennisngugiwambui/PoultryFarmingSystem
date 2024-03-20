@@ -240,6 +240,7 @@ class OperationController extends Controller
 
             $feed = new Feed();
 
+
             $feed->feedName=$request->feedName;
             $feed->quantity=$request->quantity;
             $feed->supplier=$request->supplier;
