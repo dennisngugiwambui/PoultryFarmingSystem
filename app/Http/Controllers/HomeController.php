@@ -8,6 +8,7 @@ use App\Models\Egg;
 use App\Models\Feed;
 use App\Models\Price;
 use App\Models\Sales;
+use http\Client\Curl\User;
 use http\Env\Url;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -244,5 +245,27 @@ class HomeController extends Controller
         // Find the eggs laid today based on the formatted date
         $todaysEggs = Egg::where('date', 'LIKE', $todayFormatted . '%')->sum('eggs_number');
         return view('Admin.feeding', compact('chicken', 'Count', 'eggs', 'eggsRecord', 'todaysEggs', 'price', 'totalSales', 'sales', 'feed'));
+    }
+
+
+    public function profile()
+    {
+        if (Auth::id()) {
+            $usertype = Auth::user()->usertype;
+
+            if ($usertype === 'farmer') {
+                $bidder = auth()->user();
+
+                return view('Admin.profile', compact('bidder'));
+            }
+            else if ( $usertype == 'users')
+            {
+               // $user = User::find()
+
+                $user = auth()->user();
+
+                return  view('Users.profile', compact('user'));
+            }
+        }
     }
 }
