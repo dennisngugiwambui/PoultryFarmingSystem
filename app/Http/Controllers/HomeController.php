@@ -55,11 +55,11 @@ class HomeController extends Controller
                 //return response()->json($chicken);
 
                 return view('Admin.index', compact('chicken', 'Count', 'eggs', 'eggsRecord', 'todaysEggs', 'distinctSalesTypes', 'totalSales'));
-            } else if ($usertype === 'admin') {
-                $salesOfEggs = [];
+            } else if ($usertype === 'users') {
 
 
-                return view('Admin.index', compact('salesOfEggs'));
+
+                return view('Users.index');
             }
         } else {
             return view('auth.login');
