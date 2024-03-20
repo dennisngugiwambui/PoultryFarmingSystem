@@ -5,13 +5,13 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Focus - Bootstrap Admin Dashboard </title>
+    <title>Users Dashboard </title>
     <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="./images/favicon.png">
-    <link rel="stylesheet" href="./vendor/owl-carousel/css/owl.carousel.min.css">
-    <link rel="stylesheet" href="./vendor/owl-carousel/css/owl.theme.default.min.css">
-    <link href="./vendor/jqvmap/css/jqvmap.min.css" rel="stylesheet">
-    <link href="./css/style.css" rel="stylesheet">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{asset('./Users/images/favicon.png')}}">
+    <link rel="stylesheet" href="{{asset('./Users/vendor/owl-carousel/css/owl.carousel.min.css')}}">
+    <link rel="stylesheet" href="{{asset('./Users/vendor/owl-carousel/css/owl.theme.default.min.css')}}">
+    <link href="{{asset('./Users/vendor/jqvmap/css/jqvmap.min.css')}}" rel="stylesheet">
+    <link href="{{asset('./Users/css/style.css')}}" rel="stylesheet">
 
 
 
@@ -902,9 +902,9 @@
     Scripts
 ***********************************-->
 <!-- Required vendors -->
-<script src="./vendor/global/global.min.js"></script>
-<script src="./js/quixnav-init.js"></script>
-<script src="./js/custom.min.js"></script>
+<script src="{{asset('./Users/vendor/global/global.min.js')}}"></script>
+<script src="{{asset('./Users/js/quixnav-init.js')}}"></script>
+<script src="{{asset('./Users/js/custom.min.js')}}"></script>
 
 
 <!-- Vectormap -->
@@ -922,15 +922,15 @@
 <script src="./vendor/flot/jquery.flot.resize.js"></script>
 
 <!-- Owl Carousel -->
-<script src="./vendor/owl-carousel/js/owl.carousel.min.js"></script>
+<script src="{{asset('./Users/vendor/owl-carousel/js/owl.carousel.min.js')}}"></script>
 
 <!-- Counter Up -->
-<script src="./vendor/jqvmap/js/jquery.vmap.min.js"></script>
-<script src="./vendor/jqvmap/js/jquery.vmap.usa.js"></script>
-<script src="./vendor/jquery.counterup/jquery.counterup.min.js"></script>
+<script src="{{asset('./Users/vendor/jqvmap/js/jquery.vmap.min.js')}}"></script>
+<script src="{{asset('./Users/vendor/jqvmap/js/jquery.vmap.usa.js')}}"></script>
+<script src="{{asset('./Users/vendor/jquery.counterup/jquery.counterup.min.js')}}"></script>
 
 
-<script src="./js/dashboard/dashboard-1.js"></script>
+<script src="{{asset('./Users/js/dashboard/dashboard-1.js')}}"></script>
 
 </body>
 
