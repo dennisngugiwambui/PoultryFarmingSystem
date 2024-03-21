@@ -121,12 +121,34 @@
                             </button>
                         </div>
                         <div class="modal-body">
-                            <!-- Add Chicken Form Fields Here -->
+                            <form method="POST" action="{{ route('RegisteringChickens') }}">
+                                @csrf
+
+                                <div class="mb-3">
+                                    <label for="num_chickens" class="form-label">{{ __('Number of Chickens') }}</label>
+                                    <input id="num_chickens" type="number" class="form-control @error('chicken_number') is-invalid @enderror" name="chicken_number" required>
+                                    @error('chicken_number')
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                    @enderror
+                                </div>
+
+
+
+                                <div class="mb-3">
+                                    <label for="comments" class="form-label">{{ __('Comments') }}</label>
+                                    <textarea id="comments" class="form-control @error('comments') is-invalid @enderror" name="comments" rows="3" required></textarea>
+                                    @error('comments')
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                    @enderror
+                                </div>
+
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                    <button type="submit" class="btn btn-primary">Save Record</button>
+                                </div>
+                            </form>
                         </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary">Save Changes</button>
-                        </div>
+
                     </div>
                 </div>
             </div>

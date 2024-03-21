@@ -13,6 +13,8 @@
     <link href="{{asset('./Users/vendor/jqvmap/css/jqvmap.min.css')}}" rel="stylesheet">
     <link href="{{asset('./Users/css/style.css')}}" rel="stylesheet">
 
+    <link rel="stylesheet" href="http://cdn.bootcss.com/toastr.js/latest/css/toastr.min.css">
+
 
 
 </head>
@@ -172,6 +174,11 @@
 
 
 <script src="{{asset('./Users/js/dashboard/dashboard-1.js')}}"></script>
+
+<script src="http://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="http://cdn.bootcss.com/toastr.js/latest/js/toastr.min.js"></script>
+
+{!! Toastr::message() !!}
 
 </body>
 
