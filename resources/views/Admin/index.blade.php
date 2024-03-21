@@ -26,6 +26,7 @@
                 <a href="/RegisterPoultry" class="nav-item nav-link"><i class="fa fa-keyboard me-2"></i>Chickens</a>
                 <a href="/eggs" class="nav-item nav-link"><i class="fa fa-keyboard me-2"></i>Eggs</a>
                 <a href="/sales" class="nav-item nav-link"><i class="fa fa-keyboard me-2"></i>Sales</a>
+                <a href="/employees" class="nav-item nav-link"><i class="fa fa-list-alt"></i>Employees</a>
                 <a href="/news" class="nav-item nav-link"><i class="fa fa-list-alt"></i>Others</a>
 
             </div>
