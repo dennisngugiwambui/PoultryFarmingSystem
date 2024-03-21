@@ -72,7 +72,7 @@
                             <h4 class="card-title">Chickens Records</h4>
                             <div class="table-responsive">
                                 <div class="input-group mb-3">
-                                    <input type="text" class="form-control" placeholder="Search Chickens" aria-label="Search Chickens" aria-describedby="search-chickens">
+                                    <input type="text" class="form-control" id="myInput" onkeyup="myFunction()" placeholder="Search Chickens" aria-label="Search Chickens" aria-describedby="search-chickens">
                                     <div class="input-group-append">
                                         <button class="btn btn-primary" type="button" id="search-chickens">Search</button>
                                         <button class="btn btn-success" type="button" data-toggle="modal" data-target="#addChickenModal">
@@ -80,7 +80,7 @@
                                         </button>
                                     </div>
                                 </div>
-                                <table class="table table-striped table-bordered zero-configuration">
+                                <table class="table table-striped table-bordered zero-configuration" id="myTable">
                                     <thead>
                                     <tr>
                                         <th>#</th>
@@ -150,7 +150,6 @@
 
 @endsection
 
-@push('scripts')
     <script>
         $(document).ready(function() {
             // Initialize DataTables for both tables
@@ -178,4 +177,40 @@
             });
         });
     </script>
-@endpush
+
+<script>
+    function myFunction() {
+        var input, filter, table, tr, td, i, txtValue;
+        input = document.getElementById("myInput");
+        filter = input.value.toUpperCase();
+        table = document.getElementById("myTable");
+        tr = table.getElementsByTagName("tr");
+
+        for (i = 0; i < tr.length; i++) {
+            var display = "none";  // Set the default display to "none"
+
+            // Exclude the table head from search
+            if (tr[i].getElementsByTagName("th").length > 0) {
+                tr[i].style.display = "";
+                continue;  // Skip to the next iteration if it's the table head
+            }
+
+            // Loop through the columns (0 to 5)
+            for (var j = 0; j < 6; j++) {
+                td = tr[i].getElementsByTagName("td")[j];
+
+                if (td) {
+                    txtValue = td.textContent || td.innerText;
+
+                    // If any of the columns match the search criteria, set display to "table-row"
+                    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                        display = "table-row";
+                        break;  // Break the inner loop if a match is found in any column
+                    }
+                }
+            }
+
+            tr[i].style.display = display;
+        }
+    }
+</script>

@@ -309,4 +309,36 @@ class HomeController extends Controller
             }
         }
     }
+
+    public function employees()
+    {
+        if (Auth::id()) {
+            $usertype = Auth::user()->usertype;
+
+            if ($usertype === 'farmer') {
+                $users = User::all();
+
+                $normal = User::where('usertype', 'users')->get();
+                $admin = User::where('usertype', 'farmer')->get();
+                $Count = Chicken::sum('number');
+                $eggs = Egg::sum('eggs_number');
+                $totalSales = Sales::sum('total');
+
+                return view('Admin.Employees', compact('users', 'normal', 'Count', 'eggs', 'totalSales', 'admin'));
+            }else if ( $usertype == 'users')
+            {
+                $chicken=Chicken::all();
+                $Count=Chicken::sum('number');
+                $eggs=Egg::sum('eggs_number');
+                $eggsRecord=Egg::all();
+                $totalSales=Sales::sum('total');
+
+
+                return view('Users.index', compact('chicken', 'eggs', 'eggsRecord', 'totalSales', 'Count'));
+            }
+        }else {
+
+            return view('auth.login');
+        }
+    }
 }
