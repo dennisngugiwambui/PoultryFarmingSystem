@@ -141,9 +141,40 @@
                                 <td>{{ $chickens->phone }}</td>
                                 <td>{{$chickens->usertype}}</td>
                                 <td>
-                                    <button><i class="fa fa-edit"></i> </button>
+                                    <button class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#changeUserTypeModal_{{ $chickens->id }}">
+                                        <i class="fa fa-edit"></i>
+                                    </button>
                                 </td>
                             </tr>
+
+                            <!-- Change User Type Modal -->
+                            <div class="modal fade" id="changeUserTypeModal_{{ $chickens->id }}" tabindex="-1" aria-labelledby="changeUserTypeModalLabel_{{ $chickens->id }}" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="changeUserTypeModalLabel_{{ $chickens->id }}">Change User Type</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <form id="changeUserTypeForm_{{ $chickens->id }}">
+                                                @csrf
+                                                <input type="hidden" name="userId" value="{{ $chickens->id }}">
+                                                <div class="mb-3">
+                                                    <label for="userType" class="form-label">User Type</label>
+                                                    <select class="form-control" id="userType" name="userType">
+                                                        <option value="admin" @if($chickens->usertype == 'farmer') selected @endif>Admin</option>
+                                                        <option value="user" @if($chickens->usertype == 'users') selected @endif>Users</option>
+                                                    </select>
+                                                </div>
+                                            </form>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                            <button type="button" class="btn btn-primary" onclick="updateUserType('{{ $chickens->id }}')">Save Changes</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         @endforeach
                         <!-- Add your dynamic content here (e.g., loop through eggs) -->
                         </tbody>
@@ -154,7 +185,7 @@
         <!-- Recent Sales End -->
 
         <!-- Add Eggs Modal -->
-        <div class="modal fade" id="addEggsModal" tabindex="-1" aria-labelledby="addEggsModalLabel" aria-hidden="true">
+        <div class="modal fade" id="#changeUserTypeModal_{{ $chickens->id }}" tabindex="-1" aria-labelledby="#changeUserTypeModal_{{ $chickens->id }}" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
                     <div class="modal-header">

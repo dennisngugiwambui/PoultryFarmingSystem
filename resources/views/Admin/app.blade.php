@@ -32,6 +32,8 @@
     <link href="{{asset('Admin/css/style.css')}}" rel="stylesheet">
 
     <link rel="stylesheet" href="http://cdn.bootcss.com/toastr.js/latest/css/toastr.min.css">
+
+
 </head>
 
 <body>
