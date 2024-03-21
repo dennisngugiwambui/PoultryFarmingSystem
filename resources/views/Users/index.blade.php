@@ -27,7 +27,7 @@
                         <div class="stat-widget-two card-body">
                             <div class="stat-content">
                                 <div class="stat-text">Sales</div>
-                                <div class="stat-digit"> <i class="fa fa-usd"></i>7800</div>
+                                <div class="stat-digit"> Ksh.{{$totalSales}}</div>
                             </div>
                             <div class="progress">
                                 <div class="progress-bar progress-bar-primary w-75" role="progressbar" aria-valuenow="78" aria-valuemin="0" aria-valuemax="100"></div>
@@ -40,7 +40,7 @@
                         <div class="stat-widget-two card-body">
                             <div class="stat-content">
                                 <div class="stat-text">Eggs</div>
-                                <div class="stat-digit"> 500</div>
+                                <div class="stat-digit"> {{$eggs}}</div>
                             </div>
                             <div class="progress">
                                 <div class="progress-bar progress-bar-warning w-50" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
@@ -53,7 +53,7 @@
                         <div class="stat-widget-two card-body">
                             <div class="stat-content">
                                 <div class="stat-text">Chickens</div>
-                                <div class="stat-digit"> 650</div>
+                                <div class="stat-digit"> {{$Count}}</div>
                             </div>
                             <div class="progress">
                                 <div class="progress-bar progress-bar-danger w-65" role="progressbar" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"></div>
@@ -80,31 +80,25 @@
                                 <table class="table table-striped table-bordered zero-configuration">
                                     <thead>
                                     <tr>
-                                        <th>ID</th>
-                                        <th>Name</th>
-                                        <th>Breed</th>
-                                        <th>Age</th>
+                                        <th>#</th>
+                                        <th>Date</th>
+                                        <th>Number of chickens	</th>
+                                        <th>Farmer</th>
+                                        <th>Phone</th>
+                                        <th>Status</th>
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>Clucky</td>
-                                        <td>Rhode Island Red</td>
-                                        <td>2 years</td>
-                                    </tr>
-                                    <tr>
-                                        <td>2</td>
-                                        <td>Feathers</td>
-                                        <td>Barred Plymouth Rock</td>
-                                        <td>1 year</td>
-                                    </tr>
-                                    <tr>
-                                        <td>3</td>
-                                        <td>Eggbert</td>
-                                        <td>Orpington</td>
-                                        <td>3 years</td>
-                                    </tr>
+                                    @foreach($chicken as $chickens)
+                                        <tr>
+                                            <td>{{$chickens->id}}</td>
+                                            <td>{{$chickens->date}}</td>
+                                            <td>{{$chickens->number}}</td>
+                                            <td>{{ $chickens->farmerName }}</td>
+                                            <td>{{$chickens->farmerPhone}}</td>
+                                            <td><span class="badge bg-danger">{{$chickens->status}}</span></td>
+                                        </tr>
+                                    @endforeach
                                     <!-- Add more chicken records as needed -->
                                     </tbody>
                                 </table>

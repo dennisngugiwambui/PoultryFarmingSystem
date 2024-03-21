@@ -58,9 +58,14 @@ class HomeController extends Controller
                 return view('Admin.index', compact('chicken', 'Count', 'eggs', 'eggsRecord', 'todaysEggs', 'distinctSalesTypes', 'totalSales'));
             } else if ($usertype === 'users') {
 
+                $chicken=Chicken::all();
+                $Count=Chicken::sum('number');
+                $eggs=Egg::sum('eggs_number');
+                $eggsRecord=Egg::all();
+                $totalSales=Sales::sum('total');
 
 
-                return view('Users.index');
+                return view('Users.index', compact('chicken', 'eggs', 'eggsRecord', 'totalSales', 'Count'));
             }
         } else {
             return view('auth.login');
