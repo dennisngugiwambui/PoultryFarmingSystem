@@ -93,12 +93,27 @@ class HomeController extends Controller
 
 
                 return view('Admin.RegisterPoultry', compact('eggs', 'chicks', 'Count', 'todaysEggs', 'totalSales'));
-            } else if ($usertype === 'admin') {
+            } else if ($usertype === 'users') {
+
+                $bidder = auth()->user();
+
+                $Count=Chicken::sum('number');
+                $eggs=Egg::sum('eggs_number');
+                $chicks = Chicken::all();
+
+                // Convert today's date to the format "d M Y"
+                $todayFormatted = Carbon::today()->format('d M Y');
+                $totalSales=Sales::sum('total');
+
+                // Find the eggs laid today based on the formatted date
+                $todaysEggs = Egg::where('date', 'LIKE', $todayFormatted . '%')->sum('eggs_number');
 
 
-                return view('Admin.RegisterPoultry');
+
+                return view('Users.chickens', compact('eggs', 'chicks', 'Count', 'todaysEggs', 'totalSales'));
             }
         } else {
+
             return view('auth.login');
         }
 

@@ -9,6 +9,12 @@
             <li><a class="" href="/profile" aria-expanded="false"><i
                         class="icon icon-single-04"></i>Profile</a>
             </li>
+            <li><a class="" href="/RegisterPoultry" aria-expanded="false"><i
+                        class="icon icon-single-04"></i>Chickens</a>
+            </li>
+            <li><a class="" href="/eggs" aria-expanded="false"><i
+                        class="icon icon-single-04"></i>Eggs</a>
+            </li>
         </ul>
     </div>
 
