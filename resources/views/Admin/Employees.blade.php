@@ -118,31 +118,28 @@
             <div class="bg-secondary text-center rounded p-4">
                 <div class="d-flex align-items-center justify-content-between mb-4">
                     <h6 class="mb-0">Eggs Record</h6>
-                    <a href="#" data-bs-toggle="modal" data-bs-target="#addEggsModal">Add New</a>
                 </div>
                 <div class="table-responsive">
                     <table class="table text-start align-middle table-bordered table-hover mb-0">
                         <thead>
                         <tr class="text-white">
                             <th scope="col">#</th>
-                            <th scope="col">Date</th>
-                            <th scope="col">Number of eggs</th>
-                            <th scope="col">Farmer</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Email</th>
                             <th scope="col">Phone</th>
-                            <th scope="col">Status</th>
+                            <th scope="col">Permission</th>
                             <th scope="col">Action</th>
                         </tr>
                         </thead>
                         <tbody>
-                        @foreach($eggsCount as $chickens)
+                        @foreach($users as $chickens)
                             <tr>
                                 <td>{{$chickens->id}}</td>
-                                <td>{{$chickens->date}}</td>
-                                <td>{{$chickens->eggs_number}}</td>
-                                <td>{{ $chickens->farmerName }}</td>
-                                <td>{{$chickens->farmerPhone}}</td>
-                                <td><span class="badge bg-success">{{$chickens->status}}</span></td>
-                                <td><a class="btn btn-sm btn-primary" href="/eggsDetails/{{$chickens->id}}">Detail</a></td>
+                                <td>{{$chickens->name}}</td>
+                                <td>{{$chickens->email}}</td>
+                                <td>{{ $chickens->phone }}</td>
+                                <td>{{$chickens->usertype}}</td>
+                                <td>{{$chickens->usertype}}</td>
                             </tr>
                         @endforeach
                         <!-- Add your dynamic content here (e.g., loop through eggs) -->
