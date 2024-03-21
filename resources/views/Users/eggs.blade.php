@@ -75,6 +75,9 @@
                                     <input type="text" class="form-control" placeholder="Search Chickens" aria-label="Search Chickens" aria-describedby="search-chickens">
                                     <div class="input-group-append">
                                         <button class="btn btn-primary" type="button" id="search-chickens">Search</button>
+                                        <button class="btn btn-success" type="button" data-toggle="modal" data-target="#addChickenModal">
+                                            <i class="fa fa-plus"></i> Add Eggs
+                                        </button>
                                     </div>
                                 </div>
                                 <table class="table table-striped table-bordered zero-configuration">
@@ -82,67 +85,60 @@
                                     <tr>
                                         <th>#</th>
                                         <th>Date</th>
-                                        <th>Number of chickens	</th>
+                                        <th>Number of Chickens</th>
                                         <th>Farmer</th>
                                         <th>Phone</th>
                                         <th>Status</th>
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    @foreach($chicken as $chickens)
-                                        <tr>
-                                            <td>{{$chickens->id}}</td>
-                                            <td>{{$chickens->date}}</td>
-                                            <td>{{$chickens->number}}</td>
-                                            <td>{{ $chickens->farmerName }}</td>
-                                            <td>{{$chickens->farmerPhone}}</td>
-                                            <td><span class="badge bg-danger">{{$chickens->status}}</span></td>
-                                        </tr>
-                                    @endforeach
-                                    <!-- Add more chicken records as needed -->
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12">
-                    <div class="card">
-                        <div class="card-body">
-                            <h4 class="card-title">Eggs Records</h4>
-                            <div class="table-responsive">
-                                <div class="input-group mb-3">
-                                    <input type="text" class="form-control" placeholder="Search Eggs" aria-label="Search Eggs" aria-describedby="search-eggs">
-                                    <div class="input-group-append">
-                                        <button class="btn btn-primary" type="button" id="search-eggs">Search</button>
-                                    </div>
-                                </div>
-                                <table class="table table-striped table-bordered zero-configuration">
-                                    <thead>
-                                    <tr>
-                                        <th>#</th>
-                                        <th>Date</th>
-                                        <th>Number of Eggs</th>
-                                        <th>Farmer</th>
-                                        <th>Phone</th>
-                                        <th>Status</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    @foreach($eggsRecord as $chickens)
+                                    @foreach($eggsCount as $chickens)
                                         <tr>
                                             <td>{{$chickens->id}}</td>
                                             <td>{{$chickens->date}}</td>
                                             <td>{{$chickens->eggs_number}}</td>
                                             <td>{{ $chickens->farmerName }}</td>
                                             <td>{{$chickens->farmerPhone}}</td>
-                                            <td><span class="badge bg-danger">{{$chickens->status}}</span></td>
+                                            <td><span class="badge badge-pill badge-danger">{{$chickens->status}}</span></td>
                                         </tr>
                                     @endforeach
                                     </tbody>
                                 </table>
                             </div>
                         </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Add Chicken Modal -->
+            <div class="modal fade" id="addChickenModal" tabindex="-1" role="dialog" aria-labelledby="addChickenModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="addChickenModalLabel">Add Eggs</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <form action="{{route('RegisterEggs')}}" method="post">
+                                @csrf
+                                <!-- Add your form fields here -->
+                                <div class="mb-3">
+                                    <label for="eggs_number" class="form-label">Number of Eggs</label>
+                                    <input type="number" class="form-control" id="eggs_number" name="eggs_number" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="comments" class="form-label">Comments</label>
+                                    <textarea class="form-control" id="comments" name="comments" required></textarea>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                    <button type="submit" class="btn btn-primary">Save Changes</button>
+                                </div>
+                            </form>
+                        </div>
+
                     </div>
                 </div>
             </div>

@@ -121,17 +121,38 @@ class HomeController extends Controller
 
     public function eggs()
     {
-        $Count=Chicken::sum('number');
-        $eggs=Egg::sum('eggs_number');
-        $eggsCount = Egg::all();
-        // Convert today's date to the format "d M Y"
-        $todayFormatted = Carbon::today()->format('d M Y');
-        $totalSales=Sales::sum('total');
+        if (Auth::id()) {
+            $usertype = Auth::user()->usertype;
 
-        // Find the eggs laid today based on the formatted date
-        $todaysEggs = Egg::where('date', 'LIKE', $todayFormatted . '%')->sum('eggs_number');
+            if ($usertype === 'farmer') {
+                $Count = Chicken::sum('number');
+                $eggs = Egg::sum('eggs_number');
+                $eggsCount = Egg::all();
+                // Convert today's date to the format "d M Y"
+                $todayFormatted = Carbon::today()->format('d M Y');
+                $totalSales = Sales::sum('total');
 
-        return view('Admin.eggs', compact('Count', 'eggs', 'eggsCount', 'todaysEggs', 'totalSales'));
+                // Find the eggs laid today based on the formatted date
+                $todaysEggs = Egg::where('date', 'LIKE', $todayFormatted . '%')->sum('eggs_number');
+
+                return view('Admin.eggs', compact('Count', 'eggs', 'eggsCount', 'todaysEggs', 'totalSales'));
+            } else if ($usertype === 'users') {
+                $Count = Chicken::sum('number');
+                $eggs = Egg::sum('eggs_number');
+                $eggsCount = Egg::all();
+                // Convert today's date to the format "d M Y"
+                $todayFormatted = Carbon::today()->format('d M Y');
+                $totalSales = Sales::sum('total');
+
+                // Find the eggs laid today based on the formatted date
+                $todaysEggs = Egg::where('date', 'LIKE', $todayFormatted . '%')->sum('eggs_number');
+
+                return view('Users.eggs', compact('Count', 'eggs', 'eggsCount', 'todaysEggs', 'totalSales'));
+            }
+        } else {
+
+            return view('auth.login');
+        }
     }
 
     public function eggsDetails(Request $request)
