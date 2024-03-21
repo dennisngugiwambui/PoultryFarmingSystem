@@ -53,3 +53,5 @@ Route::get('/generateReceiptPdf/{id}', [\App\Http\Controllers\OperationControlle
 
 Route::post('/chicks', [App\Http\Controllers\OperationController::class, 'chicks'])->name('chicks');
 Route::post('/Feeding',[App\Http\Controllers\OperationController::class, 'Feeding'])->name('Feeding');
+
+Route::post('/ChangePermission/{id}', [App\Http\Controllers\OperationController::class, 'ChangePermission'])->name('usertypeChange');

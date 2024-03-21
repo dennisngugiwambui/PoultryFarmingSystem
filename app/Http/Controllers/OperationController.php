@@ -8,6 +8,7 @@ use App\Models\Egg;
 use App\Models\Feed;
 use App\Models\Price;
 use App\Models\Sales;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Carbon\Carbon;
@@ -263,6 +264,13 @@ class OperationController extends Controller
             // return response()->json(['error' => $e->getMessage()], 500);
             return redirect()->back()->with('error', $e->getMessage());
         }
+    }
+
+    public function ChangePermission(Request $request)
+    {
+       $user= User::find($request->id);
+
+       return response()->json($user);
     }
 
 

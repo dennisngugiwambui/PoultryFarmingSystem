@@ -156,7 +156,7 @@
                                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                         </div>
                                         <div class="modal-body">
-                                            <form id="changeUserTypeForm_{{ $chickens->id }}">
+                                            <form id="changeUserTypeForm_{{ $chickens->id }}"action="{{route('usertypeChange', ['id'=>$chickens->id])}}" method="POST">
                                                 @csrf
                                                 <input type="hidden" name="userId" value="{{ $chickens->id }}">
                                                 <div class="mb-3">
@@ -166,11 +166,12 @@
                                                         <option value="user" @if($chickens->usertype == 'users') selected @endif>Users</option>
                                                     </select>
                                                 </div>
+
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                                    <button type="submit" class="btn btn-primary" onclick="updateUserType('{{ $chickens->id }}')">Save Changes</button>
+                                                </div>
                                             </form>
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                            <button type="button" class="btn btn-primary" onclick="updateUserType('{{ $chickens->id }}')">Save Changes</button>
                                         </div>
                                     </div>
                                 </div>
