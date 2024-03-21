@@ -120,32 +120,25 @@
                                 <table class="table table-striped table-bordered zero-configuration">
                                     <thead>
                                     <tr>
-                                        <th>ID</th>
-                                        <th>Chicken ID</th>
+                                        <th>#</th>
                                         <th>Date</th>
-                                        <th>Quantity</th>
+                                        <th>Number of Eggs</th>
+                                        <th>Farmer</th>
+                                        <th>Phone</th>
+                                        <th>Status</th>
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>1</td>
-                                        <td>2023-03-20</td>
-                                        <td>3</td>
-                                    </tr>
-                                    <tr>
-                                        <td>2</td>
-                                        <td>2</td>
-                                        <td>2023-03-19</td>
-                                        <td>2</td>
-                                    </tr>
-                                    <tr>
-                                        <td>3</td>
-                                        <td>3</td>
-                                        <td>2023-03-18</td>
-                                        <td>4</td>
-                                    </tr>
-                                    <!-- Add more egg records as needed -->
+                                    @foreach($eggsRecord as $chickens)
+                                        <tr>
+                                            <td>{{$chickens->id}}</td>
+                                            <td>{{$chickens->date}}</td>
+                                            <td>{{$chickens->eggs_number}}</td>
+                                            <td>{{ $chickens->farmerName }}</td>
+                                            <td>{{$chickens->farmerPhone}}</td>
+                                            <td><span class="badge bg-danger">{{$chickens->status}}</span></td>
+                                        </tr>
+                                    @endforeach
                                     </tbody>
                                 </table>
                             </div>
