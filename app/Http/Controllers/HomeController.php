@@ -8,7 +8,7 @@ use App\Models\Egg;
 use App\Models\Feed;
 use App\Models\Price;
 use App\Models\Sales;
-use http\Client\Curl\User;
+use App\Models\User;
 use http\Env\Url;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -323,8 +323,15 @@ class HomeController extends Controller
                 $Count = Chicken::sum('number');
                 $eggs = Egg::sum('eggs_number');
                 $totalSales = Sales::sum('total');
+                $todayFormatted = Carbon::today()->format('d M Y');
 
-                return view('Admin.Employees', compact('users', 'normal', 'Count', 'eggs', 'totalSales', 'admin'));
+                // Find the eggs laid today based on the formatted date
+                $todaysEggs = Egg::where('date', 'LIKE', $todayFormatted . '%')->sum('eggs_number');
+                $distinctSalesTypes = Sales::select('salesType', \DB::raw('SUM(quantity) as totalQuantity'))
+                    ->groupBy('salesType')
+                    ->get();
+
+                return view('Admin.Employees', compact('users', 'normal', 'Count', 'eggs', 'totalSales', 'admin', 'todaysEggs'));
             }else if ( $usertype == 'users')
             {
                 $chicken=Chicken::all();
