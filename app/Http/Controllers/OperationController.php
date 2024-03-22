@@ -268,9 +268,21 @@ class OperationController extends Controller
 
     public function ChangePermission(Request $request)
     {
-       $user= User::find($request->id);
+        $user = User::find($request->id);
 
-       return response()->json($user);
+        if ($user) {
+            $user->usertype = $request->usertype;
+            $user->save();
+
+            Toastr::success('User permission changed successfully', 'success', ["positionClass" => "toast-bottom-right"]);
+            //return response()->json(['message' => 'User permission changed successfully']);
+            return redirect()->back()->with('success', 'permission changed successfully');
+        } else {
+            Toastr::error('User not found', 'Error', ["positionClass" => "toast-bottom-right"]);
+            //return response()->json(['message' => 'User permission changed successfully']);
+
+            return redirect()->back()->with('error', 'User not found');
+        }
     }
 
 

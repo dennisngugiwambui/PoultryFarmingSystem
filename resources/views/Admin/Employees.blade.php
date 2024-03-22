@@ -161,9 +161,9 @@
                                                 <input type="hidden" name="userId" value="{{ $chickens->id }}">
                                                 <div class="mb-3">
                                                     <label for="userType" class="form-label">User Type</label>
-                                                    <select class="form-control" id="userType" name="userType">
-                                                        <option value="admin" @if($chickens->usertype == 'farmer') selected @endif>Admin</option>
-                                                        <option value="user" @if($chickens->usertype == 'users') selected @endif>Users</option>
+                                                    <select class="form-control" id="userType" name="usertype">
+                                                        <option value="farmer" @if($chickens->usertype == 'farmer') selected @endif>Admin</option>
+                                                        <option value="users" @if($chickens->usertype == 'users') selected @endif>Users</option>
                                                     </select>
                                                 </div>
 
