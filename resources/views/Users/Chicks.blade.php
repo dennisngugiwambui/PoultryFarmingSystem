@@ -121,13 +121,13 @@
                             </button>
                         </div>
                         <div class="modal-body">
-                            <form method="POST" action="{{ route('RegisteringChickens') }}">
+                            <form method="POST" action="{{ route('chicks') }}">
                                 @csrf
 
                                 <div class="mb-3">
-                                    <label for="num_chickens" class="form-label">{{ __('Number of Chickens') }}</label>
-                                    <input id="num_chickens" type="number" class="form-control @error('chicken_number') is-invalid @enderror" name="chicken_number" required>
-                                    @error('chicken_number')
+                                    <label for="num_chickens" class="form-label">{{ __('Number of New Chicks') }}</label>
+                                    <input id="num_chickens" type="number" class="form-control @error('chicks') is-invalid @enderror" name="chicks" required>
+                                    @error('chicks')
                                     <div class="invalid-feedback">{{ $message }}</div>
                                     @enderror
                                 </div>
