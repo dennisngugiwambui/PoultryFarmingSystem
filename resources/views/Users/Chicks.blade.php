@@ -76,7 +76,7 @@
                                     <div class="input-group-append">
                                         <button class="btn btn-primary" type="button" id="search-chickens">Search</button>
                                         <button class="btn btn-success" type="button" data-toggle="modal" data-target="#addChickenModal">
-                                            <i class="fa fa-plus"></i> Add Chicken
+                                            <i class="fa fa-plus"></i> Add Chicks
                                         </button>
                                     </div>
                                 </div>
@@ -96,7 +96,7 @@
                                         <tr>
                                             <td>{{$chickens->id}}</td>
                                             <td>{{$chickens->date}}</td>
-                                            <td>{{$chickens->number}}</td>
+                                            <td>{{$chickens->chick_number}}</td>
                                             <td>{{ $chickens->farmerName }}</td>
                                             <td>{{$chickens->farmerPhone}}</td>
                                             <td><span class="badge badge-pill badge-danger">{{$chickens->status}}</span></td>
