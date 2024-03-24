@@ -348,4 +348,17 @@ class HomeController extends Controller
             return view('auth.login');
         }
     }
+
+
+    public function Addingchicks()
+    {
+        $chicks = Chick::all();
+        $chicken=Chicken::all();
+        $Count=Chicken::sum('number');
+        $eggs=Egg::sum('eggs_number');
+        $eggsRecord=Egg::all();
+        $totalSales=Sales::sum('total');
+
+        return view('Users.Chicks', compact('chicks', 'chicken', 'Count', 'eggs', 'eggsRecord', 'totalSales'));
+    }
 }
