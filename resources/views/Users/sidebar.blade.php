@@ -15,6 +15,9 @@
             <li><a class="" href="/eggs" aria-expanded="false"><i
                         class="icon icon-single-04"></i>Eggs</a>
             </li>
+            <li><a class="" href="/chicks" aria-expanded="false"><i
+                        class="icon icon-single-04"></i>Chicks</a>
+            </li>
         </ul>
     </div>
 

@@ -48,10 +48,11 @@ Route::post('/RegisterEggs',[App\Http\Controllers\OperationController::class, 'R
 Route::post('/newPrice', [App\Http\Controllers\OperationController::class, 'newPrice'])->name('newPrice');
 
 Route::post('/salesProducts', [App\Http\Controllers\OperationController::class, 'sales'])->name('sales');
+Route::get('/chicks', [App\Http\Controllers\HomeController::class, 'Addingchicks'])->name('Addingchicks');
 
 Route::get('/generateReceiptPdf/{id}', [\App\Http\Controllers\OperationController::class, 'generateReceiptPdf'])->name('generateReceiptPdf');
 
-Route::post('/chicks', [App\Http\Controllers\OperationController::class, 'chicks'])->name('chicks');
+Route::post('/AddingChicks', [App\Http\Controllers\OperationController::class, 'chicks'])->name('chicks');
 Route::post('/Feeding',[App\Http\Controllers\OperationController::class, 'Feeding'])->name('Feeding');
 
 Route::post('/ChangePermission/{id}', [App\Http\Controllers\OperationController::class, 'ChangePermission'])->name('usertypeChange');
