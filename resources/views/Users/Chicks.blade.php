@@ -126,8 +126,8 @@
 
                                 <div class="mb-3">
                                     <label for="num_chickens" class="form-label">{{ __('Number of New Chicks') }}</label>
-                                    <input id="num_chickens" type="number" class="form-control @error('chicks') is-invalid @enderror" name="chicks" required>
-                                    @error('chicks')
+                                    <input id="num_chickens" type="number" class="form-control @error('chick_number') is-invalid @enderror" name="chick_number" required>
+                                    @error('chick_number')
                                     <div class="invalid-feedback">{{ $message }}</div>
                                     @enderror
                                 </div>
