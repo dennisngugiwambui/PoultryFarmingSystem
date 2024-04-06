@@ -86,6 +86,7 @@
                                         <th>#</th>
                                         <th>Date</th>
                                         <th>Number of Poultry</th>
+                                        <th>Type</th>
                                         <th>Farmer</th>
                                         <th>Phone</th>
                                         <th>Status</th>
@@ -97,6 +98,7 @@
                                             <td>{{$chickens->id}}</td>
                                             <td>{{$chickens->date}}</td>
                                             <td>{{$chickens->number}}</td>
+                                            <th>{{$chickens->type}}</th>
                                             <td>{{ $chickens->farmerName }}</td>
                                             <td>{{$chickens->farmerPhone}}</td>
                                             <td><span class="badge badge-pill badge-danger">{{$chickens->status}}</span></td>
