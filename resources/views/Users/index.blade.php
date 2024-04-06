@@ -52,7 +52,7 @@
                     <div class="card">
                         <div class="stat-widget-two card-body">
                             <div class="stat-content">
-                                <div class="stat-text">Chickens</div>
+                                <div class="stat-text">Poultry</div>
                                 <div class="stat-digit"> {{$Count}}</div>
                             </div>
                             <div class="progress">
@@ -69,7 +69,7 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-body">
-                            <h4 class="card-title">Chickens Records</h4>
+                            <h4 class="card-title">Poultry Records</h4>
                             <div class="table-responsive">
                                 <div class="input-group mb-3">
                                     <input type="text" class="form-control" placeholder="Search Chickens" aria-label="Search Chickens" aria-describedby="search-chickens">
@@ -82,7 +82,7 @@
                                     <tr>
                                         <th>#</th>
                                         <th>Date</th>
-                                        <th>Number of chickens	</th>
+                                        <th>Number of Poultry	</th>
                                         <th>Farmer</th>
                                         <th>Phone</th>
                                         <th>Status</th>

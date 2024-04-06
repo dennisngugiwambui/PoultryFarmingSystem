@@ -85,7 +85,7 @@
                                     <tr>
                                         <th>#</th>
                                         <th>Date</th>
-                                        <th>Number of Chickens</th>
+                                        <th>Number of Eggs</th>
                                         <th>Farmer</th>
                                         <th>Phone</th>
                                         <th>Status</th>
