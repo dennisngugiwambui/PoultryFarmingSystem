@@ -86,7 +86,7 @@
                     <div class="bg-secondary rounded d-flex align-items-center justify-content-between p-4">
                         <i class="fas fa-layer-group fa-3x text-warning"></i>
                         <div class="ms-3">
-                            <p class="mb-2">Total Chickens Registered</p>
+                            <p class="mb-2">Total Poultry Registered</p>
                             <h6 class="mb-0">{{$Count}}</h6>
                         </div>
                     </div>
@@ -127,7 +127,8 @@
                         <tr class="text-white">
                             <th scope="col">#</th>
                             <th scope="col">Date</th>
-                            <th scope="col">Number of eggs</th>
+                            <th scope="col">Number of Poultry</th>
+                            <th scope="col">Type</th>
                             <th scope="col">Farmer</th>
                             <th scope="col">Phone</th>
                             <th scope="col">Status</th>
@@ -140,6 +141,7 @@
                                 <td>{{$chickens->id}}</td>
                                 <td>{{$chickens->date}}</td>
                                 <td>{{$chickens->number}}</td>
+                                <td>{{$chickens->type}}</td>
                                 <td>{{ $chickens->farmerName }}</td>
                                 <td>{{$chickens->farmerPhone}}</td>
                                 <td><span class="badge bg-success">{{$chickens->status}}</span></td>
@@ -159,7 +161,7 @@
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="addEggsModalLabel">Add New Eggs</h5>
+                        <h5 class="modal-title" id="addEggsModalLabel">Add New Poultry</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
@@ -168,12 +170,27 @@
                             @csrf
 
                             <div class="mb-3">
-                                <label for="num_chickens" class="form-label">{{ __('Number of Chickens') }}</label>
+                                <label for="num_chickens" class="form-label">{{ __('Number of Poultry') }}</label>
                                 <input id="num_chickens" type="number" class="form-control @error('chicken_number') is-invalid @enderror" name="chicken_number" required>
                                 @error('chicken_number')
                                 <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
                             </div>
+
+                            <div class="mb-3">
+                                <label for="num_chickens" class="form-label">{{ __('Select Type') }}</label>
+                                <select id="type" class="form-control @error('type') is-invalid @enderror" name="type" required>
+                                    <option selected disabled>--select--</option>
+                                    <option>Chicken</option>
+                                    <option>Turkey</option>
+                                    <option>Ducks</option>
+                                    <option>Geese</option>
+                                </select>
+                                @error('type')
+                                <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
+                            </div>
+
 
 
 
