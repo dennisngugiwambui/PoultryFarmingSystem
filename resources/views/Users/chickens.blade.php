@@ -52,7 +52,7 @@
                     <div class="card">
                         <div class="stat-widget-two card-body">
                             <div class="stat-content">
-                                <div class="stat-text">Chickens</div>
+                                <div class="stat-text">Poultry</div>
                                 <div class="stat-digit"> {{$Count}}</div>
                             </div>
                             <div class="progress">
@@ -85,7 +85,7 @@
                                     <tr>
                                         <th>#</th>
                                         <th>Date</th>
-                                        <th>Number of Chickens</th>
+                                        <th>Number of Poultry</th>
                                         <th>Farmer</th>
                                         <th>Phone</th>
                                         <th>Status</th>
