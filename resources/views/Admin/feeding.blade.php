@@ -114,7 +114,7 @@
                     <div class="bg-secondary rounded d-flex align-items-center justify-content-between p-4">
                         <i class="fas fa-layer-group fa-3x text-warning"></i>
                         <div class="ms-3">
-                            <p class="mb-2">Total Chickens Registered</p>
+                            <p class="mb-2">Total Poultry Registered</p>
                             <h6 class="mb-0">{{$Count}}</h6>
                         </div>
                     </div>
