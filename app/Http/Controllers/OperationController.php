@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Chick;
-use App\Models\Chicken;
+use App\Models\Poultry;
 use App\Models\Egg;
 use App\Models\Feed;
 use App\Models\Price;
@@ -26,7 +26,7 @@ class OperationController extends Controller
                 'comments' => 'required|string',
             ]);
 
-            $chicken=new Chicken();
+            $chicken=new Poultry();
 
             $farmer=auth()->user();
 
@@ -134,14 +134,14 @@ class OperationController extends Controller
                 Egg::decrement('eggs_number', $request->quantity);
             }
         } else {
-            $chicken = Chicken::sum('number');
+            $chicken = Poultry::sum('number');
             // Check if the quantity exceeds the available chicken count
             if ($request->quantity > $chicken) {
                 Toastr::error('Error: Quantity exceeds available chicken count', 'Error',["positionClass" => "toast-bottom-right"]);
                 return redirect()->back()->with('error', 'Error: Quantity exceeds available chicken count.');
             } else {
                 // Update the chicken count in the database
-                Chicken::decrement('number', $request->quantity);
+                Poultry::decrement('number', $request->quantity);
             }
         }
 

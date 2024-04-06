@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Chick;
-use App\Models\Chicken;
+use App\Models\Poultry;
 use App\Models\Egg;
 use App\Models\Feed;
 use App\Models\Price;
@@ -31,8 +31,8 @@ class HomeController extends Controller
                 $bidder = auth()->user();
 
 
-                $chicken=Chicken::all();
-                $Count=Chicken::sum('number');
+                $chicken=Poultry::all();
+                $Count=Poultry::sum('number');
                 $eggs=Egg::sum('eggs_number');
                 $eggsRecord=Egg::all();
                 $totalSales=Sales::sum('total');
@@ -58,8 +58,8 @@ class HomeController extends Controller
                 return view('Admin.index', compact('chicken', 'Count', 'eggs', 'eggsRecord', 'todaysEggs', 'distinctSalesTypes', 'totalSales'));
             } else if ($usertype === 'users') {
 
-                $chicken=Chicken::all();
-                $Count=Chicken::sum('number');
+                $chicken=Poultry::all();
+                $Count=Poultry::sum('number');
                 $eggs=Egg::sum('eggs_number');
                 $eggsRecord=Egg::all();
                 $totalSales=Sales::sum('total');
@@ -80,9 +80,9 @@ class HomeController extends Controller
             if ($usertype === 'farmer') {
                 $bidder = auth()->user();
 
-                $Count=Chicken::sum('number');
+                $Count=Poultry::sum('number');
                 $eggs=Egg::sum('eggs_number');
-                $chicks = Chicken::all();
+                $chicks = Poultry::all();
 
                 // Convert today's date to the format "d M Y"
                 $todayFormatted = Carbon::today()->format('d M Y');
@@ -97,9 +97,9 @@ class HomeController extends Controller
 
                 $bidder = auth()->user();
 
-                $Count=Chicken::sum('number');
+                $Count=Poultry::sum('number');
                 $eggs=Egg::sum('eggs_number');
-                $chicks = Chicken::all();
+                $chicks = Poultry::all();
 
                 // Convert today's date to the format "d M Y"
                 $todayFormatted = Carbon::today()->format('d M Y');
@@ -125,7 +125,7 @@ class HomeController extends Controller
             $usertype = Auth::user()->usertype;
 
             if ($usertype === 'farmer') {
-                $Count = Chicken::sum('number');
+                $Count = Poultry::sum('number');
                 $eggs = Egg::sum('eggs_number');
                 $eggsCount = Egg::all();
                 // Convert today's date to the format "d M Y"
@@ -137,7 +137,7 @@ class HomeController extends Controller
 
                 return view('Admin.eggs', compact('Count', 'eggs', 'eggsCount', 'todaysEggs', 'totalSales'));
             } else if ($usertype === 'users') {
-                $Count = Chicken::sum('number');
+                $Count = Poultry::sum('number');
                 $eggs = Egg::sum('eggs_number');
                 $eggsCount = Egg::all();
                 // Convert today's date to the format "d M Y"
@@ -158,7 +158,7 @@ class HomeController extends Controller
     public function eggsDetails(Request $request)
     {
 
-        $Count=Chicken::sum('number');
+        $Count=Poultry::sum('number');
         $eggs=Egg::sum('eggs_number');
         //$eggsCount = Egg::where('id', $request->id)->get();
         $eggsCount = Egg::find($request->id);
@@ -175,10 +175,10 @@ class HomeController extends Controller
     public function chickenDetails(Request $request)
     {
 
-        $Count=Chicken::sum('number');
+        $Count=Poultry::sum('number');
         $eggs=Egg::sum('eggs_number');
         //$eggsCount = Egg::where('id', $request->id)->get();
-        $eggsCount = Chicken::find($request->id);
+        $eggsCount = Poultry::find($request->id);
         // Convert today's date to the format "d M Y"
         $todayFormatted = Carbon::today()->format('d M Y');
         $totalSales=Sales::sum('total');
@@ -192,10 +192,10 @@ class HomeController extends Controller
     public function sales()
     {
 
-        $Count=Chicken::sum('number');
+        $Count=Poultry::sum('number');
         $eggs=Egg::sum('eggs_number');
         //$eggsCount = Egg::where('id', $request->id)->get();
-        $eggsCount = Chicken::all();
+        $eggsCount = Poultry::all();
         $price=Price::all();
         $chicken=Egg::all();
         $sales = Sales::orderBy('created_at', 'desc')->get();
@@ -212,8 +212,8 @@ class HomeController extends Controller
     public function prices()
     {
 
-        $chicken=Chicken::all();
-        $Count=Chicken::sum('number');
+        $chicken=Poultry::all();
+        $Count=Poultry::sum('number');
         $eggs=Egg::sum('eggs_number');
         $eggsRecord=Egg::all();
         $price=Price::all();
@@ -231,8 +231,8 @@ class HomeController extends Controller
 
     public function newSales()
     {
-        $chicken=Chicken::all();
-        $Count=Chicken::sum('number');
+        $chicken=Poultry::all();
+        $Count=Poultry::sum('number');
         $eggs=Egg::sum('eggs_number');
         $eggsRecord=Egg::all();
         $price=Price::all();
@@ -249,8 +249,8 @@ class HomeController extends Controller
 
     public function news()
     {
-        $chicken=Chicken::all();
-        $Count=Chicken::sum('number');
+        $chicken=Poultry::all();
+        $Count=Poultry::sum('number');
         $eggs=Egg::sum('eggs_number');
         $eggsRecord=Egg::all();
         $price=Price::all();
@@ -270,8 +270,8 @@ class HomeController extends Controller
 
     public function feeding()
     {
-        $chicken=Chicken::all();
-        $Count=Chicken::sum('number');
+        $chicken=Poultry::all();
+        $Count=Poultry::sum('number');
         $eggs=Egg::sum('eggs_number');
         $eggsRecord=Egg::all();
         $price=Price::all();
@@ -320,7 +320,7 @@ class HomeController extends Controller
 
                 $normal = User::where('usertype', 'users')->get();
                 $admin = User::where('usertype', 'farmer')->get();
-                $Count = Chicken::sum('number');
+                $Count = Poultry::sum('number');
                 $eggs = Egg::sum('eggs_number');
                 $totalSales = Sales::sum('total');
                 $todayFormatted = Carbon::today()->format('d M Y');
@@ -334,8 +334,8 @@ class HomeController extends Controller
                 return view('Admin.Employees', compact('users', 'normal', 'Count', 'eggs', 'totalSales', 'admin', 'todaysEggs'));
             }else if ( $usertype == 'users')
             {
-                $chicken=Chicken::all();
-                $Count=Chicken::sum('number');
+                $chicken=Poultry::all();
+                $Count=Poultry::sum('number');
                 $eggs=Egg::sum('eggs_number');
                 $eggsRecord=Egg::all();
                 $totalSales=Sales::sum('total');
@@ -353,8 +353,8 @@ class HomeController extends Controller
     public function Addingchicks()
     {
         $chicks = Chick::all();
-        $chicken=Chicken::all();
-        $Count=Chicken::sum('number');
+        $chicken=Poultry::all();
+        $Count=Poultry::sum('number');
         $eggs=Egg::sum('eggs_number');
         $eggsRecord=Egg::all();
         $totalSales=Sales::sum('total');
