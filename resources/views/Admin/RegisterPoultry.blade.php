@@ -181,8 +181,8 @@
                                 <label for="num_chickens" class="form-label">{{ __('Select Type') }}</label>
                                 <select id="type" class="form-control @error('type') is-invalid @enderror" name="type" required>
                                     <option selected disabled>--select--</option>
-                                    <option>Chicken</option>
-                                    <option>Turkey</option>
+                                    <option>Chickens</option>
+                                    <option>Turkeys</option>
                                     <option>Ducks</option>
                                     <option>Geese</option>
                                 </select>

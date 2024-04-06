@@ -117,7 +117,7 @@
                 <div class="modal-dialog modal-dialog-centered" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="addChickenModalLabel">Add Chicken</h5>
+                            <h5 class="modal-title" id="addChickenModalLabel">Add Poultry</h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
@@ -127,9 +127,24 @@
                                 @csrf
 
                                 <div class="mb-3">
-                                    <label for="num_chickens" class="form-label">{{ __('Number of Chickens') }}</label>
+                                    <label for="num_chickens" class="form-label">{{ __('Number of poultry') }}</label>
                                     <input id="num_chickens" type="number" class="form-control @error('chicken_number') is-invalid @enderror" name="chicken_number" required>
                                     @error('chicken_number')
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                    @enderror
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="num_chickens" class="form-label">{{ __('type') }}</label>
+                                    <select  class="form-control @error('type') is-invalid @enderror" name="type" required>
+                                        <option selected disabled>--select--</option>
+                                        <option>Chickens</option>
+                                        <option>Turkeys</option>
+                                        <option>Ducks</option>
+                                        <option>Geese</option>
+                                    </select>
+
+                                    @error('type')
                                     <div class="invalid-feedback">{{ $message }}</div>
                                     @enderror
                                 </div>
