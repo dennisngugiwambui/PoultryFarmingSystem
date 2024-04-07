@@ -9,7 +9,7 @@
 
 ## ABOUT POULTRY FARMING SYSTEM
 
-This system is buit in laravel among other minor programming languages.
+This system is buit in laravel among other minor programming languages like.
 
 The project mainly includes farmers adding individual chickens as well as recording the stock of eggs collected each day. 
 
