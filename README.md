@@ -15,7 +15,7 @@ The project mainly includes farmers adding individual chickens as well as record
 
 The system also allows the user to sale the eggs. After sales a receipt to the person purchasing the eggs is generated. 
 
-The system will be capable to employ Ai text generation to help farmers do some research. 
+The system will be capable to employ Ai text generation to help farmers do some research. The api will be from either google bard, copilot or chatgpt. 
 
 
 
