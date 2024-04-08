@@ -17,7 +17,7 @@ The system also allows the user to sale the eggs. After sales a receipt to the p
 
 The system will be capable to employ Ai text generation to help farmers do some research. The api will be from either google bard, copilot or chatgpt. 
 
-I have made this to help farmers and other poultry famers
+I have made this to help farmers and other poultry famers in record keeping
 
 
 
