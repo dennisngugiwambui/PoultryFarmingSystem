@@ -76,7 +76,7 @@
                                     <div class="input-group-append">
                                         <button class="btn btn-primary" type="button" id="search-chickens">Search</button>
                                         <button class="btn btn-success" type="button" data-toggle="modal" data-target="#addChickenModal">
-                                            <i class="fa fa-plus"></i> Add Chicken
+                                            <i class="fa fa-plus"></i> Add Poultry
                                         </button>
                                     </div>
                                 </div>
