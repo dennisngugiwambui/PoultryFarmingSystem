@@ -110,3 +110,8 @@
         </div>
         <!-- Poultry Farming Information End -->
 
+    </div>
+    <!-- Add Eggs Modal End -->
+
+@endsection
+
