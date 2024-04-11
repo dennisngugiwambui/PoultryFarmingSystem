@@ -67,3 +67,46 @@
         </nav>
         <!-- Navbar End -->
 
+        <!-- Poultry Farming Information Start -->
+        <div class="container-fluid pt-4 px-4">
+            <div class="row g-4">
+                <div class="col-sm-6 col-xl-3">
+                    <div class="bg-secondary rounded d-flex align-items-center justify-content-between p-4">
+                        <i class="fas fa-egg fa-3x text-warning"></i>
+                        <div class="ms-3">
+                            <p class="mb-2">Eggs Laid Today</p>
+                            <h6 class="mb-0">{{$todaysEggs}}</h6>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-xl-3">
+                    <div class="bg-secondary rounded d-flex align-items-center justify-content-between p-4">
+                        <i class="fas fa-layer-group fa-3x text-warning"></i>
+                        <div class="ms-3">
+                            <p class="mb-2">Total Poultry Registered</p>
+                            <h6 class="mb-0">{{$Count}}</h6>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-xl-3">
+                    <div class="bg-secondary rounded d-flex align-items-center justify-content-between p-4">
+                        <i class="fas fa-dollar-sign fa-3x text-success"></i>
+                        <div class="ms-3">
+                            <p class="mb-2">Total eggs</p>
+                            <h6 class="mb-0">{{$eggs}}</h6>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-xl-3">
+                    <div class="bg-secondary rounded d-flex align-items-center justify-content-between p-4">
+                        <i class="fas fa-dollar-sign fa-3x text-success"></i>
+                        <div class="ms-3">
+                            <p class="mb-2">Total Revenue</p>
+                            <h6 class="mb-0">Ksh. {{$totalSales}}</h6>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Poultry Farming Information End -->
+
