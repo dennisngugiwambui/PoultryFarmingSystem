@@ -22,7 +22,7 @@ class OperationController extends Controller
     {
         try {
             $request->validate([
-                'chicken_number' => 'required|integer',
+                'chicken_number' => 'required|integer|gt:0',
                 'comments' => 'required|string',
             ]);
 
@@ -33,6 +33,7 @@ class OperationController extends Controller
             $chicken->farmerName=$farmer->name;
             $chicken->farmerPhone=$farmer->phone;
             $chicken->number=$request->chicken_number;
+            $chicken->type=$request->type;
             $chicken->date= Carbon::now()->format('d M Y');
             $chicken->comments=$request->comments;
 
@@ -44,7 +45,9 @@ class OperationController extends Controller
 
         } catch (\Exception $e) {
             // Log the exception or handle it accordingly
-            return response()->json(['error' => $e->getMessage()], 500);
+            //return response()->json(['error' => $e->getMessage()], 500);
+            Toastr::error($e->getMessage(), 'error',["positionClass" => "toast-bottom-right"]);
+            return  redirect()->back()->with('error',  $e->getMessage());
         }
 
     }
@@ -54,7 +57,7 @@ class OperationController extends Controller
     {
         try {
             $request->validate([
-                'eggs_number' => 'required|integer',
+                'eggs_number' => 'required|integer|gt:0',
                 'comments' => 'required|string',
             ]);
 
