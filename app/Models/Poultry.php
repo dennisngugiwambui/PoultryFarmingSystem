@@ -8,4 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class Poultry extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'farmerName',
+        'farmerPhone',
+        'number',
+        'type',
+        'date',
+        'comments',
+    ];
 }
