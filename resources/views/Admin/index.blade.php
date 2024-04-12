@@ -127,7 +127,7 @@
                         <tr class="text-white">
                             <th scope="col">#</th>
                             <th scope="col">Date</th>
-                            <th scope="col">Number of chickens</th>
+                            <th scope="col">Number of Poultry</th>
                             <th scope="col">Farmer</th>
                             <th scope="col">Phone</th>
                             <th scope="col">Status</th>
@@ -245,7 +245,7 @@
                 data: {
                     labels: chickenIDs,
                     datasets: [{
-                        label: 'Number of Chickens',
+                        label: 'Number of Poultry',
                         data: chickenNumbers,
                         backgroundColor: [
                             'rgb(79,122,6)',
