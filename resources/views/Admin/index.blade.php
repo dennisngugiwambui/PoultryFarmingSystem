@@ -28,6 +28,7 @@
                 <a href="/sales" class="nav-item nav-link"><i class="fa fa-keyboard me-2"></i>Sales</a>
                 <a href="/employees" class="nav-item nav-link"><i class="fa fa-list-alt"></i>Employees</a>
                 <a href="/news" class="nav-item nav-link"><i class="fa fa-list-alt"></i>Others</a>
+                <a href="/research" class="nav-item nav-link"><i class="fa fa-list-alt"></i>Research</a>
 
             </div>
         </nav>

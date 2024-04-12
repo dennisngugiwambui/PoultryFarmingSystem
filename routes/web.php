@@ -41,6 +41,7 @@ Route::get('/news', [App\Http\Controllers\HomeController::class, 'news']);
 Route::get('/feeding', [App\Http\Controllers\HomeController::class, 'feeding']);
 Route::get('/profile', [App\Http\Controllers\HomeController::class, 'profile'])->name('profile');
 Route::get('/employees', [App\Http\Controllers\HomeController::class, 'employees'])->name('employees');
+Route::get('/research', [App\Http\Controllers\HomeController::class, 'research'])->name('research');
 
 Route::post('/RegisteringChickens',[App\Http\Controllers\OperationController::class, 'RegisterChickens'])->name('RegisteringChickens');
 

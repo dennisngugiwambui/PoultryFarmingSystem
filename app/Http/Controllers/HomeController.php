@@ -361,4 +361,46 @@ class HomeController extends Controller
 
         return view('Users.Chicks', compact('chicks', 'chicken', 'Count', 'eggs', 'eggsRecord', 'totalSales'));
     }
+
+    public function research()
+    {
+        if (Auth::id()) {
+            $usertype = Auth::user()->usertype;
+
+            if ($usertype === 'farmer') {
+                $users = User::all();
+
+                $normal = User::where('usertype', 'users')->get();
+                $admin = User::where('usertype', 'farmer')->get();
+                $Count = Poultry::sum('number');
+                $eggs = Egg::sum('eggs_number');
+                $totalSales = Sales::sum('total');
+                $todayFormatted = Carbon::today()->format('d M Y');
+
+                // Find the eggs laid today based on the formatted date
+                $todaysEggs = Egg::where('date', 'LIKE', $todayFormatted . '%')->sum('eggs_number');
+                $distinctSalesTypes = Sales::select('salesType', \DB::raw('SUM(quantity) as totalQuantity'))
+                    ->groupBy('salesType')
+                    ->get();
+
+                return view('Admin.research', compact('users', 'normal', 'Count', 'eggs', 'totalSales', 'admin', 'todaysEggs'));
+                //return view('Admin.research', compact('users', 'normal', 'Count', 'eggs', 'totalSales', 'admin', 'todaysEggs'));
+            }else if ( $usertype == 'users')
+            {
+                $chicken=Poultry::all();
+                $Count=Poultry::sum('number');
+                $eggs=Egg::sum('eggs_number');
+                $eggsRecord=Egg::all();
+                $totalSales=Sales::sum('total');
+
+
+                return view('Users.research', compact('chicken', 'eggs', 'eggsRecord', 'totalSales', 'Count'));
+            }
+        }else {
+
+            return view('auth.login');
+        }
+    }
+
+
 }
