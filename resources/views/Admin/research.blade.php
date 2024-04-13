@@ -1,6 +1,75 @@
 @extends('Admin.app')
 
 @section('content')
+        <style>
+            /* Style the main container */
+        .chat-container {
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        /* Style the chat log */
+        #chat-log {
+            flex: 1;
+            overflow-y: auto;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #ffffff;
+        }
+
+        /* Style the chat form */
+        #chat-form {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            background-color: #f1f1f1;
+            border-top: 1px solid #ccc;
+        }
+
+        /* Style the chat input field */
+        #user-message {
+            flex: 1;
+            padding: 8px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            margin-right: 10px;
+        }
+
+        /* Style the chat send button */
+        #chat-form button {
+            padding: 8px 12px;
+            border-radius: 4px;
+            border: none;
+            background-color: #007bff;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        /* Change button color on hover */
+        #chat-form button:hover {
+            background-color: #0056b3;
+        }
+
+        /* Style the chat log messages */
+        #chat-log p {
+            margin: 5px 0;
+        }
+
+        /* Style for user messages */
+        #chat-log p:nth-child(even) {
+            font-weight: bold;
+            color: #007bff;
+        }
+
+        /* Style for AI messages */
+        #chat-log p:nth-child(odd) {
+            color: #6c757d;
+        }
+    </style>
+
 
     <!-- Sidebar Start -->
     <div class="sidebar pe-4 pb-3">
@@ -109,6 +178,90 @@
             </div>
         </div>
         <!-- Poultry Farming Information End -->
+
+        <!-- Poultry Products Sales -->
+        <div class="container-fluid pt-4 px-4">
+            <div class="bg-secondary text-center rounded p-4">
+                <div class="d-flex align-items-center justify-content-between mb-4">
+                    <h6 class="mb-0">Poultry Products Sales</h6>
+                </div>
+
+                <!-- Sales Entry Form -->
+                <!-- Sales Entry Form -->
+                <form action="{{ route('sales') }}" method="post" id="salesForm">
+                    @csrf
+                    <div class="row g-3">
+
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="buyerName" class="form-label">Buyer Name</label>
+                                <input type="text" class="form-control" id="buyerName" name="buyerName" required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+
+                <!-- jQuery script to update price field -->
+                <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+                <script>
+                    $(document).ready(function() {
+                        $('#productType').change(function() {
+                            // Fetch the corresponding price for the selected sales type
+                            let selectedOption = $(this).find(':selected');
+                            let selectedPrice = selectedOption.data('price');
+                            $('#price').val(selectedPrice ? selectedPrice : '');
+                        });
+                    });
+                </script>
+
+
+                <script>
+                    function calculateTotal() {
+                        let price = parseFloat(document.getElementById('price').value);
+                        let quantity = parseFloat(document.getElementById('quantity').value);
+                        let total = price * quantity;
+                        document.getElementById('total').value = isNaN(total) ? '' : total.toFixed(2);
+                    }
+                </script>
+
+                <!-- Add this script after your previous JavaScript code -->
+                <script>
+                    function validateQuantity() {
+                        let selectedType = document.getElementById('productType');
+                        let selectedQuantity = parseFloat(document.getElementById('quantity').value);
+
+                        if (!selectedType || isNaN(selectedQuantity)) {
+                            return true; // Validation will be handled by HTML5 'required' attribute
+                        }
+
+                        let availableCount = parseFloat(selectedType.options[selectedType.selectedIndex].dataset.count);
+
+                        if (selectedQuantity > availableCount) {
+                            alert('Error: Quantity exceeds available count.');
+                            return false;
+                        }
+
+                        return true;
+                    }
+
+                    // Add the onsubmit attribute to your form
+                    document.getElementById('salesForm').onsubmit = validateQuantity;
+                </script>
+
+
+
+
+
+
+
+
+                <!-- Sales Entry Form End -->
+
+            </div>
+
 
     </div>
     <!-- Add Eggs Modal End -->
