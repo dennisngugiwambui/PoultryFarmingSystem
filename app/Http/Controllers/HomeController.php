@@ -13,6 +13,7 @@ use http\Env\Url;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
 {
@@ -32,8 +33,8 @@ class HomeController extends Controller
 
 
                 $chicken=Poultry::all();
-                $Count=Poultry::sum('number');
-                $eggs=Egg::sum('eggs_number');
+                $Count = DB::table('poultries')->selectRaw('SUM(number) AS aggregate')->get()->first()->aggregate;
+                $eggs = DB::table('eggs')->selectRaw('SUM(eggs_number) AS eggs')->get()->first()->eggs;
                 $eggsRecord=Egg::all();
                 $totalSales=Sales::sum('total');
 
@@ -59,8 +60,8 @@ class HomeController extends Controller
             } else if ($usertype === 'users') {
 
                 $chicken=Poultry::all();
-                $Count=Poultry::sum('number');
-                $eggs=Egg::sum('eggs_number');
+                $Count = DB::table('poultries')->selectRaw('SUM(number) AS aggregate')->get()->first()->aggregate;
+                $eggs = DB::table('eggs')->selectRaw('SUM(eggs_number) AS eggs')->get()->first()->eggs;
                 $eggsRecord=Egg::all();
                 $totalSales=Sales::sum('total');
 
@@ -301,7 +302,7 @@ class HomeController extends Controller
             }
             else if ( $usertype == 'users')
             {
-               // $user = User::find()
+                // $user = User::find()
 
                 $user = auth()->user();
 
@@ -391,7 +392,7 @@ class HomeController extends Controller
                 $Count=Poultry::sum('number');
                 $eggs=Egg::sum('eggs_number');
                 $eggsRecord=Egg::all();
-                $totalSales=Sales::sum('total');
+                $totalSales = Sales::sum('total');
 
 
                 return view('Users.research', compact('chicken', 'eggs', 'eggsRecord', 'totalSales', 'Count'));
