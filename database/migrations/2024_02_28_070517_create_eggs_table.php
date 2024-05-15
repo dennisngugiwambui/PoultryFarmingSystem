@@ -14,9 +14,9 @@ return new class extends Migration
         Schema::create('eggs', function (Blueprint $table) {
             $table->id();
             $table->string('farmerName');
-            $table->string('farmerPhone');
+            $table->integer('farmerPhone');
             $table->string('date');
-            $table->string('eggs_number');
+            $table->integer('eggs_number');
             $table->text('comments');
             $table->string('status')->default('entered');
             $table->timestamps();
