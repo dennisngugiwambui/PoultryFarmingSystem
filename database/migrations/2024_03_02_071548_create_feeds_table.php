@@ -14,12 +14,12 @@ return new class extends Migration
         Schema::create('feeds', function (Blueprint $table) {
             $table->id();
             $table->string('feedName');
-            $table->string('quantity');
+            $table->integer('quantity');
             $table->string('supplier');
             $table->string('purchaseDate');
             $table->text('comments');
             $table->string('enteredBy');
-            $table->string('cashierPhone');
+            $table->integer('cashierPhone');
             $table->string('status')->default('added');
             $table->timestamps();
         });

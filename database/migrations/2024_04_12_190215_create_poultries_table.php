@@ -14,8 +14,8 @@ return new class extends Migration
         Schema::create('poultries', function (Blueprint $table) {
             $table->id();
             $table->string('farmerName');
-            $table->string('farmerPhone');
-            $table->string('number');
+            $table->integer('farmerPhone');
+            $table->integer('number');
             $table->string('type');
             $table->string('date');
             $table->text('comments');
